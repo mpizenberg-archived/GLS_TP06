@@ -2,8 +2,33 @@ grammar Petrinet with org.eclipse.xtext.common.Terminals
 
 generate petrinet "http://www.Petrinet"
 
-Model:
-	greetings+=Greeting*;
+PetriNet :
+	'petrinet' name=ID '{'
+	    petriNetElements+=PetriNetElement*
+	'}'
+	;
+
+PetriNetElement :
+	Node
+	| Arc
+	;
+		
+Node :
+	Place
+	| Transition
+	;
+
+Place :
+	'place' name=ID ('('marking=INT')')?
+	;
+
+Transition :
+	'transition' name=ID
+	;
 	
-Greeting:
-	'Hello' name=ID '!';
+Arc :
+	'arc' ('('multiplicity=INT')')? (readOnly ?= 'r')?
+		'from' predecessor=[Node]
+		'to' successor=[Node]
+	;
+	
