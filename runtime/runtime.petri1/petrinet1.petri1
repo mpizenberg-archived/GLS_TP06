@@ -1,0 +1,7 @@
+petrinet petrinet1 {
+	place place1
+	place place2 (2)
+	transition transition1
+	arc r from place1 to transition1
+	arc (2) from transition1 to place2
+}
