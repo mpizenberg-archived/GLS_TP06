@@ -1,9 +1,0 @@
-grammar Petrinet with org.eclipse.xtext.common.Terminals
-
-generate petrinet "http://www.Petrinet"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
